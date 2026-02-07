@@ -51,12 +51,86 @@ Levels of  finding a solution for your problem
 - prompt AI on the topic (Ask for explanations not copy and paste code)
 - Ask Seniors advice
  
-Setup
+# Project Setup
 
-Vite
-```
+## Setup
+
+> Credit: https://www.geeksforgeeks.org/javascript/how-to-set-up-vite-with-eslint-and-prettier/
+
+### 1. Create a Vite App
+
+~~~bash
 npm create vite@latest my-vite-app
-   cd my-vite-app
-   npm install
-```
+cd my-vite-app
+npm install
+~~~
+
+### 2. Install ESLint and Prettier
+
+~~~bash
+npm install eslint prettier eslint-config-prettier eslint-plugin-prettier --save-dev
+~~~
+
+### 3. Configure ESLint
+
+Create an `.eslintrc.json` file in the project root:
+
+~~~json
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "semi": false
+      }
+    ]
+  }
+}
+~~~
+
+### 4. Configure Prettier
+
+Create a `.prettierrc` file in the project root:
+
+~~~json
+{
+  "singleQuote": true,
+  "semi": false
+}
+~~~
+
+### 5. Add NPM Scripts
+
+Update your `package.json` with the following scripts:
+
+~~~json
+"scripts": {
+  "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+  "format": "prettier --write ."
+}
+~~~
+
+### 6. Run Linting and Formatting
+
+~~~bash
+npm run lint
+npm run format
+~~~
+
+
+
 
