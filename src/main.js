@@ -1,27 +1,30 @@
-import "./style.css";
-import javascriptLogo from "./javascript.svg";
-import viteLogo from "/vite.svg";
-import { setupCounter } from "./counter.js";
 
-document.querySelector("#app").innerHTML = `
-  <div>
-<h1>Battleships</h1>
-  </div>
-`;
+const carrier = new Ship("Carrier", 5);
+const battleship = new Ship("Battleship", 4);
+const cruiser = new Ship("Cruiser", 3);
+const submarine = new Ship("Submarine", 3);
+const destroyer = new Ship("Destroyer", 2);
 
-setupCounter(document.querySelector("#counter"));
+const fleet = [carrier, battleship, cruiser, submarine, destroyer];
 
+const playerBoard = new Board("player-board", false);
+const enemyBoard = new Board("enemy-board", true);
 
-//    // <a href="https://vite.dev" target="_blank">
-    //   <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    // </a>
-    // <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-    //   <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    // </a>
-    // <h1>Hello Vite!</h1>
-    // <div class="card">
-    //   <button id="counter" type="button"></button>
-    // </div>
-    // <p class="read-the-docs">
-    //   Click on the Vite logo to learn more
-    // </p>
+// Ship selection UI
+const shipTypeSelect = document.getElementById("ship-type");
+shipTypeSelect.addEventListener("change", () => {
+  const type = shipTypeSelect.value;
+  playerBoard.currentShip = fleet.find(ship => ship.name === type);
+});
+
+const rotateButton = document.getElementById("rotate-button");
+rotateButton.addEventListener("click", () => {
+  playerBoard.direction =
+    playerBoard.direction === "horizontal" ? "vertical" : "horizontal";
+});
+
+const fireButton = document.getElementById("fire-button");
+fireButton.addEventListener("click", () => enemyBoard.fire());
+
+// Optional: set default ship on load
+playerBoard.currentShip = fleet[0];
