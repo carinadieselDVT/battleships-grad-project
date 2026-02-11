@@ -1,9 +1,13 @@
 /* Root / Global Styles */
 :root {
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --cell: clamp(22px, 7vw, 40px);
+  --control-h: 44px;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 }
@@ -12,13 +16,16 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  align-items: stretch;
+  gap: var(--space-3);
+}
+
+.container {
+  padding: var(--space-3);
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: clamp(1.5rem, 4.5vw, 3.2rem);
   line-height: 1.1;
 }
 
@@ -41,43 +48,67 @@ button {
   background-color: red;
   color: white;
   cursor: pointer;
-  transition: border-color 0.25s, background-color 0.25s;
+  transition:
+    border-color 0.25s,
+    background-color 0.25s;
+  min-height: var(--control-h);
 }
 button:hover {
   border-color: #646cff;
 }
 
 nav {
-  padding-bottom: 10px;
+  padding: 10px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  max-width: 180px;
+  gap: var(--space-2);
+  width: 100%;
+  background-color: rgb(146, 78, 209);
 }
 nav a {
+  text-align: center;
   text-decoration: none;
   color: white;
   border: 1px solid white;
-  padding: 5px;
+  padding: 0 var(--space-2);
   border-radius: 7px;
-  background-color: rgb(146, 78, 209);
+  min-height: var(--control-h);
+  line-height: var(--control-h);
 }
 .pick-and-fire {
   display: flex;
-  gap: 16px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-2);
+  width: 100%;
   padding-bottom: 40px;
+}
+
+.pick-and-fire > * {
+  width: 100%;
+}
+
+select,
+button {
+  min-height: var(--control-h);
 }
 
 .game-board {
   display: flex;
-  gap: 24px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  width: 100%;
 }
 
-/* TODO: Improve naming for boards */
 .board {
   display: grid;
   user-select: none;
   gap: 0;
+  grid-template-columns: var(--cell) repeat(12, var(--cell));
+  grid-auto-rows: var(--cell);
+  width: max-content;
 }
 
 #player-board {
@@ -91,8 +122,6 @@ nav a {
 .grid-cell,
 .legend,
 .corner {
-  width: 40px;
-  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,6 +134,7 @@ nav a {
   cursor: pointer;
   color: white;
   transition: background 0.2s;
+  aspect-ratio: 1 / 1; /* ensure cells are always squares */
 }
 
 #player-board > .grid-cell:hover {
@@ -115,13 +145,35 @@ nav a {
   background-color: rgb(209, 80, 25);
 }
 
-/* Ship placement */
 .ship {
   background-color: steelblue;
 }
 
-/* Legend & Corner Cells */
 .legend,
 .corner {
   color: #f4f4f4;
+}
+
+@media (min-width: 768px) {
+  /* Controls: equal-width columns for select + two buttons */
+  .pick-and-fire {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
+    gap: var(--space-2);
+  }
+  .pick-and-fire > * {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .game-board {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    width: 100%;
+  }
 }

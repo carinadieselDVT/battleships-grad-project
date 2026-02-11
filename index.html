@@ -5,38 +5,35 @@
     <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
     <link rel="stylesheet" href="./src/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Battleships</title>
+    <title class="title">Battleships</title>
   </head>
   <body>
-    <div>
-<h1 class="title">Battleships</h1>
-      <nav>
-        <a href="#game">Game</a>
-        <a href="history.html">Match History</a>
-      </nav>
-  <h1>Battleship</h1>
-  <h2 class="title">Pick your fighter</h2>
+    <nav>
+      <a href="#game">Game</a>
+      <a href="history.html">Match History</a>
+    </nav>
+    <div class="container">
+      <h1>Battleship</h1>
+      <h2 class="title">Pick your fighter</h2>
       <div class="pick-and-fire">
-    <select id="ship-type">
-    <option value="Carrier">Carrier</option>
-    <option value="Battleship">Battleship</option>
-    <option value="Cruiser">Cruiser</option>
-    <option value="Submarine">Submarine</option>
-    <option value="Destroyer">Destroyer</option>
-  </select>
+        <select id="ship-type">
+          <option value="Carrier">Carrier</option>
+          <option value="Battleship">Battleship</option>
+          <option value="Cruiser">Cruiser</option>
+          <option value="Submarine">Submarine</option>
+          <option value="Destroyer">Destroyer</option>
+        </select>
 
-  <button id="rotate-button">Rotate</button>
-  <button id="fire-button">Fire</button>
-  </div>
-  <div class="game-board">
-  <div id="player-board"></div>
-  <div id="enemy-board"></div>
-</div>
-
-</div>
-  <script src="./src/shipLogic.js"></script>
-  <script src="./src/boardLogic.js"></script>
+        <button id="rotate-button">Rotate</button>
+        <button id="fire-button">Fire</button>
+      </div>
+      <div class="game-board">
+        <div id="player-board"></div>
+        <div id="enemy-board"></div>
+      </div>
+    </div>
+    <script src="./src/shipLogic.js"></script>
+    <script src="./src/boardLogic.js"></script>
     <script src="./src/main.js"></script>
-
-</body>
+  </body>
 </html>
