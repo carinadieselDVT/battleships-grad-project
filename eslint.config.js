@@ -10,8 +10,5 @@ export default defineConfig([
       ecmaVersion: 'latest',
       sourceType: 'module',
     },
-    rules: {
-      // Add project-specific rules here.
-    },
   },
 ])
