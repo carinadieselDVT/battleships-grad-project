@@ -20,8 +20,8 @@ body {
   gap: var(--space-3);
 }
 
-.container{
-    padding: var(--space-3);
+.container {
+  padding: var(--space-3);
 }
 
 h1 {
@@ -48,7 +48,9 @@ button {
   background-color: red;
   color: white;
   cursor: pointer;
-  transition: border-color 0.25s, background-color 0.25s;
+  transition:
+    border-color 0.25s,
+    background-color 0.25s;
   min-height: var(--control-h);
 }
 button:hover {
@@ -60,7 +62,8 @@ nav {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  width: 100%;  background-color: rgb(146, 78, 209);
+  width: 100%;
+  background-color: rgb(146, 78, 209);
 }
 nav a {
   text-align: center;
@@ -85,7 +88,8 @@ nav a {
   width: 100%;
 }
 
-select, button {
+select,
+button {
   min-height: var(--control-h);
 }
 
@@ -151,7 +155,6 @@ select, button {
 }
 
 @media (min-width: 768px) {
-
   /* Controls: equal-width columns for select + two buttons */
   .pick-and-fire {
     display: grid;
@@ -165,12 +168,12 @@ select, button {
 }
 
 @media (min-width: 1000px) {
-.game-board {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-3);
-  width: 100%;
-}
+  .game-board {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    width: 100%;
+  }
 }
