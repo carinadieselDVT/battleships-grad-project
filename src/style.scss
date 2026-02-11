@@ -31,7 +31,9 @@ $font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-family: inherit;
   cursor: pointer;
   min-height: $control-height;
-  transition: border-color 0.25s, background-color 0.25s;
+  transition:
+    border-color 0.25s,
+    background-color 0.25s;
 }
 
 @mixin flex-center {
