@@ -118,6 +118,7 @@ nav {
     line-height: $control-height;
   }
 }
+
 .pick-and-fire {
   display: flex;
   flex-direction: column;
@@ -125,7 +126,6 @@ nav {
   gap: $space-2;
   width: 100%;
   padding-bottom: 40px;
-
   > * {
     width: 100%;
   }
@@ -144,9 +144,7 @@ button {
 }
 
 .board {
-  // display: grid;
   @include flex-center;
-  // user-select: none;
   gap: 0;
   width: max-content;
 }

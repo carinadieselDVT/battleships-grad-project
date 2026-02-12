@@ -14,16 +14,9 @@
     <div class="container">
       <h1>Battleship</h1>
       <h2 class="title">Pick your fighter</h2>
+      <!-- TODO: Fix layout of buttons and selector -->
       <div class="pick-and-fire">
-        <select id="ship-type">
-          <option value="Carrier">Carrier</option>
-          <option value="Battleship">Battleship</option>
-          <option value="Cruiser">Cruiser</option>
-          <option value="Submarine">Submarine</option>
-          <option value="Destroyer">Destroyer</option>
-        </select>
-
-        <button id="rotate-button">Rotate</button>
+        <ship-selector></ship-selector>
         <button id="fire-button">Fire</button>
       </div>
       <div class="game-board">
@@ -31,8 +24,6 @@
         <div id="enemy-board"></div>
       </div>
     </div>
-    <!-- <script src="./src/shipLogic.js"></script>
-    <script src="./src/boardLogic.js"></script> -->
     <script type="module" src="./src/main.js"></script>
   </body>
 </html>
