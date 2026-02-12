@@ -67,7 +67,11 @@ body {
 }
 
 .container {
-  padding: $space-3;
+  width: 100%;
+  max-width: 1200px;   
+  margin: 0 auto;      
+  padding: 0 1rem;     
+  box-sizing: border-box;
 }
 
 h1 {
@@ -114,6 +118,7 @@ nav {
     line-height: $control-height;
   }
 }
+
 .pick-and-fire {
   display: flex;
   flex-direction: column;
@@ -121,7 +126,6 @@ nav {
   gap: $space-2;
   width: 100%;
   padding-bottom: 40px;
-
   > * {
     width: 100%;
   }
@@ -132,21 +136,18 @@ button {
   min-height: $control-height;
 }
 
-// .game-board {
-//   @include flex-center;
-//   // flex-direction: column;
-//   gap: $space-3;
-//   width: 100%;
-// }
+.game-board {
+  @include flex-center;
+  flex-direction: column;
+  gap: $space-3;
+  width: 100%;
+}
 
-// .board {
-//   display: grid;
-//   user-select: none;
-//   gap: 0;
-//   // grid-template-columns: $cell-size repeat(12, $cell-size);
-//   // grid-auto-rows: $cell-size;
-//   width: max-content;
-// }
+.board {
+  @include flex-center;
+  gap: 0;
+  width: max-content;
+}
 
 #player-board {
   background-color: $color-player;

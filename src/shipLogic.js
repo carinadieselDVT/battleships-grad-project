@@ -1,4 +1,4 @@
-class Ship {
+export class Ship {
   constructor(name, length) {
     this.name = name
     this.length = length
@@ -19,11 +19,11 @@ class Ship {
     this.placed = true
   }
   // Logic for enemy return fire
-  hit() {
-    this.hits++
-  }
+  // hit() {
+  //   this.hits++
+  // }
 
-  isSunk() {
-    return this.hits >= this.length
-  }
+  // isSunk() {
+  //   return this.hits >= this.length
+  // }
 }
