@@ -1,3 +1,7 @@
+// main.js
+import {Ship} from "./shipLogic.js"
+import { Board } from './boardLogic.js'
+
 const carrier = new Ship('Carrier', 5)
 const battleship = new Ship('Battleship', 4)
 const cruiser = new Ship('Cruiser', 3)
@@ -25,5 +29,5 @@ rotateButton.addEventListener('click', () => {
 const fireButton = document.getElementById('fire-button')
 fireButton.addEventListener('click', () => enemyBoard.fire())
 
-// Optional: set default ship on load
+// Default ship - 
 playerBoard.currentShip = fleet[0]

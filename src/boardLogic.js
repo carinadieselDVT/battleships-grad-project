@@ -1,4 +1,4 @@
-class Board {
+export class Board {
   constructor(containerId, isEnemy = false) {
     this.size = 12
     this.isEnemy = isEnemy
@@ -13,12 +13,8 @@ class Board {
       Array(this.size).fill(null),
     )
 
-    // Set current ships on board to null
     this.currentShip = null
-    // Set default direction/orientation of ships
     this.direction = 'horizontal'
-
-    // No cells selected on enemy board by default
     this.selectedCell = null
 
     this.render()
