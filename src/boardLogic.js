@@ -34,10 +34,10 @@ export class Board {
           cell.className = 'corner'
         } else if (row === -1) {
           cell.className = 'legend'
-          cell.textContent = col + 1
+          cell.textContent = String.fromCharCode(65 + col)
         } else if (col === -1) {
           cell.className = 'legend'
-          cell.textContent = String.fromCharCode(65 + row)
+          cell.textContent = row + 1
         } else {
           cell.className = 'grid-cell'
           cell.dataset.row = row
