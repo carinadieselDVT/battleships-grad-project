@@ -2,7 +2,7 @@
 $space-1: 8px;
 $space-2: 12px;
 $space-3: 16px;
-$cell-size: clamp(22px, 7vw, 40px);
+
 $control-height: 44px;
 
 // Colours
@@ -55,6 +55,7 @@ $font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
   color: $color-text;
   background-color: $color-bg;
+  --cell-size: clamp(22px, 7vw, 40px);
 }
 
 body {
@@ -131,21 +132,21 @@ button {
   min-height: $control-height;
 }
 
-.game-board {
-  @include flex-center;
-  flex-direction: column;
-  gap: $space-3;
-  width: 100%;
-}
+// .game-board {
+//   @include flex-center;
+//   // flex-direction: column;
+//   gap: $space-3;
+//   width: 100%;
+// }
 
-.board {
-  display: grid;
-  user-select: none;
-  gap: 0;
-  grid-template-columns: $cell-size repeat(12, $cell-size);
-  grid-auto-rows: $cell-size;
-  width: max-content;
-}
+// .board {
+//   display: grid;
+//   user-select: none;
+//   gap: 0;
+//   // grid-template-columns: $cell-size repeat(12, $cell-size);
+//   // grid-auto-rows: $cell-size;
+//   width: max-content;
+// }
 
 #player-board {
   background-color: $color-player;
@@ -209,4 +210,8 @@ button {
     gap: $space-3;
     width: 100%;
   }
+}
+
+:export {
+$cell-size: clamp(22px, 7vw, 40px);
 }

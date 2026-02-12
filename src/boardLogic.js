@@ -27,8 +27,8 @@ class Board {
   render() {
     this.container.innerHTML = ''
     this.container.style.display = 'grid'
-    this.container.style.gridTemplateColumns = `var(--cell) repeat(${this.size}, var(--cell))`
-    this.container.style.gridTemplateRows = `var(--cell) repeat(${this.size}, var(--cell))`
+    this.container.style.gridTemplateColumns = `var(--cell-size) repeat(12, var(--cell-size))`;
+    this.container.style.gridTemplateRows = `var(--cell-size) repeat(12, var(--cell-size))`
 
     for (let row = -1; row < this.size; row++) {
       for (let col = -1; col < this.size; col++) {
