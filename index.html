@@ -8,22 +8,85 @@
   </head>
   <body>
     <nav>
-      <a href="#game">Game</a>
-      <a href="history.html">Match History</a>
+      <div>
+        <a href="#game" data-route>Game</a>
+        <a href="#history" data-route>Match History</a>
+        <a href="#lobby" data-route>Lobby</a>
+      </div>
+      <div>
+        <button>Logout</button>
+      </div>
     </nav>
-    <div class="container">
+
+    <!-- Login overlay (required before gameplay actions per server spec) -->
+    <login-overlay></login-overlay>
+
+    <!-- Views -->
+    <div id="view-game" class="container" style="display: block">
       <h1>Battleship</h1>
+      <div class="status-row">
+        <span id="status-text">Place your ships, then Ready up</span>
+      </div>
       <h2 class="title">Pick your fighter</h2>
-      <!-- TODO: Fix layout of buttons and selector -->
       <div class="pick-and-fire">
         <ship-selector></ship-selector>
+        <button id="ready-button">Ready</button>
         <button id="fire-button">Fire</button>
+        <button id="forfeit-button" class="danger">Forfeit</button>
       </div>
       <div class="game-board">
         <div id="player-board"></div>
         <div id="enemy-board"></div>
       </div>
     </div>
+
+    <div id="view-lobby" class="container" style="display: none">
+      <form action="">
+        <div class="container">
+          <h1>Register</h1>
+          <p>Please fill in this form to create an account.</p>
+          <hr />
+          <label for="username"><b>Username</b></label>
+          <input
+            type="text"
+            placeholder="Enter username"
+            name="email"
+            id="email"
+            required
+          />
+          <label for="psw"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="psw"
+            id="psw"
+            required
+          />
+          <button type="submit" class="registerbtn">Register</button>
+        </div>
+      </form>
+      <active-players></active-players>
+    </div>
+
+    <div id="view-history" class="container" style="display: none">
+      <h1>Match history coming soon…</h1>
+    </div>
+
+    <script>
+      // Tiny router to toggle views without page reloads
+      function showView(hash) {
+        const route = (hash || '#game').replace('#', '')
+        const views = ['game', 'lobby', 'history']
+        views.forEach((v) => {
+          const el = document.getElementById(`view-${v}`)
+          if (el) el.style.display = v === route ? 'block' : 'none'
+        })
+      }
+      window.addEventListener('hashchange', () => showView(location.hash))
+      showView(location.hash)
+    </script>
+
     <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/pages/lobby.js"></script>
   </body>
 </html>

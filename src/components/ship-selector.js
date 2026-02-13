@@ -13,7 +13,12 @@ export class SelectShip extends HTMLElement {
 
     this.querySelector('#ship-type').addEventListener('change', (event) => {
       this.dispatchEvent(
-        new CustomEvent('ship-changed', { detail: event.target.value, bubbles: true })
+        // he dispatchEvent() method of the EventTarget sends an Event to the object, (synchronously) invoking the affected event listeners in the appropriate order.
+        new CustomEvent('ship-changed', {
+          // The CustomEvent() constructor creates a new CustomEvent object. new CustomEvent(type, options)
+          detail: event.target.value,
+          bubbles: true,
+        }),
       )
     })
 
