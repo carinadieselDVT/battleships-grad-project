@@ -1,0 +1,112 @@
+<!-- Lobby -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./src/style.scss" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title class="title">Battleships</title>
+  </head>
+  <body>
+    <nav>
+      <div>
+        <a href="/">Game</a>
+        <a href="history.html">Match History</a>
+        <a href="lobby.html">Lobby</a>
+      </div>
+      <div>
+        <button>Logout</button>
+      </div>
+    </nav>
+    <div class="container">
+      <form action="">
+        <div class="container">
+          <h1>Register</h1>
+          <p>Please fill in this form to create an account.</p>
+          <hr />
+
+          <label for="username"><b>Username</b></label>
+          <input
+            type="text"
+            placeholder="Enter username"
+            name="email"
+            id="email"
+            required
+          />
+
+          <label for="psw"><b>Password</b></label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="psw"
+            id="psw"
+            required
+          />
+          <button type="submit" class="registerbtn">Register</button>
+        </div>
+      </form>
+      <!-- <div class="login-box">
+          <h2>Login</h2>
+          <input type="text" placeholder="Username" id="username" />
+          <input type="password" placeholder="Password" id="password" />
+          <button id="login-button">Login</button>
+        </div> -->
+
+      <!-- Login overlay and Active Players on lobby only -->
+      <login-overlay></login-overlay>
+      <active-players></active-players>
+    </div>
+    <script type="module" src="./src/pages/lobby.js"></script>
+  </body>
+</html>
+
+<!-- Player List -->
+<!-- #### List Available Players
+```json
+// Client -> Server
+{ "type": "list_players" }
+
+// Server -> Client
+{
+  "type": "player_list",
+  "players": [
+    {
+      "username": "player2",
+      "stats": { "gamesPlayed": 5, "wins": 3, "losses": 2 }
+    }
+  ]
+}
+```
+
+#### Send Invite
+```json
+// Client -> Server
+{ "type": "send_invite", "targetUsername": "player2" }
+
+// Server -> Client (sender)
+{ "type": "invite_sent", "inviteId": "uuid", "to": "player2" }
+
+// Server -> Client (receiver)
+{ "type": "invite_received", "inviteId": "uuid", "from": "player1" }
+
+// Server -> Client (error)
+{ "type": "invite_error", "message": "Player is already in a game" }
+```
+
+#### Accept Invite
+```json
+// Client -> Server
+{ "type": "accept_invite", "inviteId": "uuid" }
+
+// Server -> Client (both players)
+{ "type": "invite_accepted", "inviteId": "uuid", "gameId": "game-uuid" }
+```
+
+#### Decline Invite
+```json
+// Client -> Server
+{ "type": "decline_invite", "inviteId": "uuid" }
+
+// Server -> Client (both players)
+{ "type": "invite_declined", "inviteId": "uuid" }
+``` -->

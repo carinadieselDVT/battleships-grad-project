@@ -19,11 +19,11 @@ export class Ship {
     this.placed = true
   }
   // Logic for enemy return fire
-  // hit() {
-  //   this.hits++
-  // }
+  hit() {
+    this.hits++
+  }
 
-  // isSunk() {
-  //   return this.hits >= this.length
-  // }
+  isSunk() {
+    return this.hits >= this.length
+  }
 }
