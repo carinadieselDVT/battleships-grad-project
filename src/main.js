@@ -5,6 +5,37 @@ import './components/login-screen.js'
 import './components/active-players.js'
 import { getClient } from './wsSession.js'
 
+// Theme toggle and persistence
+const themeBtn = document.getElementById('theme-toggle')
+
+function applyTheme(theme) {
+  const t = theme === 'dark' ? 'dark' : 'light'
+  document.documentElement.setAttribute('data-theme', t)
+  try {
+    localStorage.setItem('theme', t)
+  } catch {}
+  if (themeBtn) themeBtn.textContent = t === 'dark' ? 'Light mode' : 'Dark mode'
+}
+
+;(function initTheme() {
+  try {
+    const saved = localStorage.getItem('theme')
+    if (saved === 'light' || saved === 'dark') {
+      applyTheme(saved)
+    } else {
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      applyTheme(systemDark ? 'dark' : 'light')
+    }
+  } catch {
+    applyTheme('light')
+  }
+})()
+
+themeBtn?.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-theme') || 'light'
+  applyTheme(current === 'dark' ? 'light' : 'dark')
+})
+
 const carrier = new Ship('Carrier', 5)
 const battleship = new Ship('Battleship', 4)
 const cruiser = new Ship('Cruiser', 3)

@@ -12,7 +12,7 @@ $color-text: rgba(255, 255, 255, 0.87);
 $color-white: white;
 $color-player: rgb(146, 78, 209);
 $color-enemy: rgb(209, 80, 25);
-$color-cell: #e0e0e0;
+$color-cell: #FBFEF9;
 $color-border: #333;
 $color-ship: steelblue;
 $color-legend: #f4f4f4;
@@ -24,6 +24,8 @@ $color-teal-blue: #0E79B2;
 $color-rosewood-pink: #BF1363;
 $color-carrot-orange: #F39237;
 $color-light-purple: #907AD6;
+
+
 
 // Typography
 $font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -61,9 +63,12 @@ $font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: $color-text;
-  background-color: $color-midnight-velvet;
+background-color: var(--bg);
   --cell-size: clamp(22px, 7vw, 40px);
 }
+// TODO: If extra time,make light mode look pretty
+:root { --bg: #a98cdd; } // Does not look great - color just to show functionality
+:root[data-theme="dark"] { --bg: #160F29; } 
 
 body {
   margin: 0;
