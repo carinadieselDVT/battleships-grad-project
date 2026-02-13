@@ -6,7 +6,7 @@ $space-3: 16px;
 $control-height: 44px;
 
 // Colours
-$color-primary: #646cff;
+$color-purple: #646cff;
 $color-primary-hover: #535bf2;
 $color-text: rgba(255, 255, 255, 0.87);
 $color-white: white;
@@ -88,22 +88,22 @@ h1 {
 
 a {
   font-weight: 500;
-  color: $color-primary;
+  color: $color-teal-blue;
   text-decoration: none;
 
   &:hover {
-    color: $color-primary;
+    color: $color-teal-blue;
     background-color: $color-porcelain; 
   }
 }
 
 button {
   @include button-base;
-  background-color: red;
+  background-color: $color-teal-blue;
   color: $color-white;
 
   &:hover {
-    border-color: $color-primary;
+    background-color: $color-rosewood-pink;
   }
 }
 
@@ -114,7 +114,7 @@ nav {
   justify-content: space-around;
   gap: $space-2;
   width: 100%;
-  background-color: $color-primary;
+  background-color: $color-teal-blue;
 
   a {
     text-align: center;
@@ -159,10 +159,10 @@ button {
 }
 
 #player-board {
-  background-color: $color-player;
+  background-color: $color-purple;
 
   .grid-cell {
-    @include board-hover($color-player);
+    @include board-hover($color-purple);
   }
 }
 
@@ -353,7 +353,7 @@ button {
 }
 
 .btn-invite {
-  background-color: $color-primary;
+  background-color: $color-teal-blue;
 }
 .btn-decline {
   background-color: #9b1c31;
