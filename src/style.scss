@@ -8,7 +8,6 @@ $control-height: 44px;
 // Colours
 $color-primary: #646cff;
 $color-primary-hover: #535bf2;
-$color-bg: #242424;
 $color-text: rgba(255, 255, 255, 0.87);
 $color-white: white;
 $color-player: rgb(146, 78, 209);
@@ -62,7 +61,7 @@ $font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: $color-text;
-  background-color: $color-bg;
+  background-color: $color-midnight-velvet;
   --cell-size: clamp(22px, 7vw, 40px);
 }
 
@@ -93,7 +92,8 @@ a {
   text-decoration: none;
 
   &:hover {
-    color: $color-primary-hover;
+    color: $color-primary;
+    background-color: $color-porcelain; 
   }
 }
 
@@ -114,7 +114,7 @@ nav {
   justify-content: space-around;
   gap: $space-2;
   width: 100%;
-  background-color: $color-player;
+  background-color: $color-primary;
 
   a {
     text-align: center;
