@@ -1,5 +1,4 @@
 // Variables
-$space-1: 8px;
 $space-2: 12px;
 $space-3: 16px;
 
@@ -7,10 +6,8 @@ $control-height: 44px;
 
 // Colours
 $color-purple: #646cff;
-$color-primary-hover: #535bf2;
 $color-text: rgba(255, 255, 255, 0.87);
 $color-white: white;
-$color-player: rgb(146, 78, 209);
 $color-enemy: rgb(209, 80, 25);
 $color-cell: #FBFEF9;
 $color-border: #333;
@@ -18,12 +15,16 @@ $color-ship: steelblue;
 $color-legend: #f4f4f4;
 
 // Theme colors
-$color-midnight-velvet: #160F29;
 $color-porcelain: #FBFEF9;
 $color-teal-blue: #0E79B2;
 $color-rosewood-pink: #BF1363;
-$color-carrot-orange: #F39237;
-$color-light-purple: #907AD6;
+
+/* Theme token: background only (dark default) */
+:root {
+  --bg: #160F29; /* dark */
+}
+:root[data-theme='light'] { --bg: #a98cdd; }
+:root[data-theme='dark']  { --bg: #160F29; }
 
 
 
@@ -63,12 +64,10 @@ $font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: $color-text;
-background-color: var(--bg);
+  background-color: var(--bg);
   --cell-size: clamp(22px, 7vw, 40px);
 }
 // TODO: If extra time,make light mode look pretty
-:root { --bg: #a98cdd; } // Does not look great - color just to show functionality
-:root[data-theme="dark"] { --bg: #160F29; } 
 
 body {
   margin: 0;
