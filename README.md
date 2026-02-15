@@ -208,3 +208,29 @@ Add new partials under components/, layout/, pages/, etc., and reference them fr
 
 ### Next steps (optional)
 - If you want lobby.html and history.html emitted as separate HTML files in production, add a Vite multi-page input config. Otherwise, index.html with hash routes is sufficient.
+
+## Vite multi-page build (configured)
+This repo is configured to emit multiple HTML pages in production: index.html, lobby.html, and history.html.
+
+Snippet (vite.config.js):
+
+````js
+import { resolve } from 'node:path'
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        lobby: resolve(__dirname, 'lobby.html'),
+        history: resolve(__dirname, 'history.html'),
+      },
+    },
+  },
+})
+````
+
+Usage:
+- Dev: `npm run dev` then open /, /lobby.html, or /history.html
+- Build: `npm run build` → outputs `dist/index.html`, `dist/lobby.html`, `dist/history.html`
