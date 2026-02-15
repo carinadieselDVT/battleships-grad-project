@@ -2,6 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('theme');
+          var sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = (saved === 'light' || saved === 'dark') ? saved : (sysDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+    </script>
     <link rel="stylesheet" href="./src/style.scss" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title class="title">Battleships</title>
@@ -14,7 +24,8 @@
         <a href="#lobby" data-route>Lobby</a>
       </div>
       <div>
-        <button>Logout</button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">Dark mode</button>
+        <button id="logout-button">Logout</button>
       </div>
     </nav>
 

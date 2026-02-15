@@ -1,22 +1,32 @@
 // Variables
-$space-1: 8px;
 $space-2: 12px;
 $space-3: 16px;
 
 $control-height: 44px;
 
 // Colours
-$color-primary: #646cff;
-$color-primary-hover: #535bf2;
-$color-bg: #242424;
+$color-purple: #646cff;
 $color-text: rgba(255, 255, 255, 0.87);
 $color-white: white;
-$color-player: rgb(146, 78, 209);
 $color-enemy: rgb(209, 80, 25);
-$color-cell: #e0e0e0;
+$color-cell: #FBFEF9;
 $color-border: #333;
 $color-ship: steelblue;
 $color-legend: #f4f4f4;
+
+// Theme colors
+$color-porcelain: #FBFEF9;
+$color-teal-blue: #0E79B2;
+$color-rosewood-pink: #BF1363;
+
+/* Theme token: background only (dark default) */
+:root {
+  --bg: #160F29; /* dark */
+}
+:root[data-theme='light'] { --bg: #a98cdd; }
+:root[data-theme='dark']  { --bg: #160F29; }
+
+
 
 // Typography
 $font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -54,9 +64,10 @@ $font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: $color-text;
-  background-color: $color-bg;
+  background-color: var(--bg);
   --cell-size: clamp(22px, 7vw, 40px);
 }
+// TODO: If extra time,make light mode look pretty
 
 body {
   margin: 0;
@@ -81,21 +92,22 @@ h1 {
 
 a {
   font-weight: 500;
-  color: $color-primary;
+  color: $color-teal-blue;
   text-decoration: none;
 
   &:hover {
-    color: $color-primary-hover;
+    color: $color-teal-blue;
+    background-color: $color-porcelain; 
   }
 }
 
 button {
   @include button-base;
-  background-color: red;
+  background-color: $color-teal-blue;
   color: $color-white;
 
   &:hover {
-    border-color: $color-primary;
+    background-color: $color-rosewood-pink;
   }
 }
 
@@ -106,7 +118,7 @@ nav {
   justify-content: space-around;
   gap: $space-2;
   width: 100%;
-  background-color: $color-player;
+  background-color: $color-teal-blue;
 
   a {
     text-align: center;
@@ -151,10 +163,10 @@ button {
 }
 
 #player-board {
-  background-color: $color-player;
+  background-color: $color-purple;
 
   .grid-cell {
-    @include board-hover($color-player);
+    @include board-hover($color-purple);
   }
 }
 
@@ -345,7 +357,7 @@ button {
 }
 
 .btn-invite {
-  background-color: $color-primary;
+  background-color: $color-teal-blue;
 }
 .btn-decline {
   background-color: #9b1c31;

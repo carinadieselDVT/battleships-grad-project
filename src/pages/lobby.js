@@ -17,7 +17,7 @@ const loginPasswordInput = document.getElementById('password')
 const loginButton = document.getElementById('login-button')
 
 // Optional: logout button in nav
-const logoutButton = document.querySelector('nav button')
+const logoutButton = document.getElementById('logout-button')
 
 // Using shared WebSocket session across views
 
