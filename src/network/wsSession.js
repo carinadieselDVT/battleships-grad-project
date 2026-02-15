@@ -1,7 +1,7 @@
 export const WS_URL = `${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.hostname}:3000`
 
 import { WebsocketClient } from './websocketClient.js'
-import { createMockClient } from './dev/mockServer.js'
+import { createMockClient } from '../../scripts/mockServer.js'
 
 let client = null
 

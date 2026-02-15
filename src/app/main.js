@@ -1,9 +1,9 @@
-import { Ship } from './shipLogic.js'
-import { Board } from './boardLogic.js'
-import './components/ship-selector.js'
-import './components/login-screen.js'
-import './components/active-players.js'
-import { getClient } from './wsSession.js'
+import { Ship } from '../game/shipLogic.js'
+import { Board } from '../game/boardLogic.js'
+import '../components/ship-selector.js'
+import '../components/login-screen.js'
+import '../components/active-players.js'
+import { getClient } from '../network/wsSession.js'
 
 // Theme toggle and persistence
 const themeBtn = document.getElementById('theme-toggle')

@@ -1,0 +1,45 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.game-board {
+  @include flex-center;
+  flex-direction: column;
+  gap: $space-3;
+  width: 100%;
+}
+
+.board {
+  @include flex-center;
+  gap: 0;
+  width: max-content;
+}
+
+#player-board {
+  background-color: $color-purple;
+  .grid-cell { @include board-hover($color-purple); }
+}
+
+#enemy-board {
+  background-color: $color-enemy;
+  .grid-cell { @include board-hover($color-enemy); }
+}
+
+.grid-cell,
+.legend,
+.corner {
+  @include flex-center;
+  font-weight: bold;
+}
+
+.grid-cell {
+  background-color: $color-cell;
+  border: 1px solid $color-border;
+  cursor: pointer;
+  color: $color-white;
+  transition: background 0.2s;
+  aspect-ratio: 1 / 1;
+}
+
+.ship { background-color: $color-ship; }
+.legend,
+.corner { color: $color-legend; }

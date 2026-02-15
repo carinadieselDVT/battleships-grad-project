@@ -1,0 +1,14 @@
+/* Entry file that composes SCSS modules */
+@use './variables' as *;
+@use './mixins' as *;
+
+@use './base/root';
+@use './layout/nav';
+
+@use './components/buttons';
+@use './components/board';
+@use './components/login-overlay';
+@use './components/players';
+
+@use './pages/game';
+@use './pages/lobby';
