@@ -234,3 +234,17 @@ export default defineConfig({
 Usage:
 - Dev: `npm run dev` then open /, /lobby.html, or /history.html
 - Build: `npm run build` → outputs `dist/index.html`, `dist/lobby.html`, `dist/history.html`
+
+## WebSocket reconnection
+- The client uses robust-websocket to automatically reconnect if the connection drops.
+- Default policy: always attempt to reconnect. See `src/network/websocketClient.js`.
+- You can tweak or disable reconnection by editing the `shouldReconnect` callback.
+
+```js
+// src/network/websocketClient.js
+import RobustWebSocket from 'robust-websocket'
+this.socket = new RobustWebSocket(WS_URL, [], {
+  // Return true to keep retrying; false to stop.
+  shouldReconnect: () => true,
+})
+```

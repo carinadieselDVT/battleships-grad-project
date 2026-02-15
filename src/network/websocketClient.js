@@ -1,6 +1,11 @@
+import RobustWebSocket from 'robust-websocket'
+
 export class WebsocketClient {
   constructor(url) {
-    this.socket = new WebSocket(url)
+    // Auto-reconnecting WebSocket with simple policy: always reconnect
+    this.socket = new RobustWebSocket(url, [], {
+      shouldReconnect: () => true, // reconnect on any close
+    })
 
     // Optional lightweight connection logs; enable via localStorage.wsDebug = '1'
     const debug = () => {
@@ -12,7 +17,7 @@ export class WebsocketClient {
     }
 
     this.socket.addEventListener('open', () => {
-      if (debug()) console.log('[WS] open')
+      if (debug()) console.log('[WS] open (robust)')
     })
 
     this.socket.addEventListener('close', (evt) => {
