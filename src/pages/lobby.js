@@ -1,6 +1,6 @@
 import '../components/login-screen.js'
 import '../components/active-players.js'
-import { getClient } from '../wsSession.js'
+import { getClient } from '../network/wsSession.js'
 
 // Elements present only on lobby
 const overlay = document.querySelector('login-overlay')
