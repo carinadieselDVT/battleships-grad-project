@@ -19,5 +19,8 @@
     "prettier": "^3.8.1",
     "sass": "^1.97.3",
     "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "robust-websocket": "^1.0.0"
   }
 }
