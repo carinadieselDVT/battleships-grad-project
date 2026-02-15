@@ -1,0 +1,22 @@
+@use '../variables' as *;
+
+nav {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: $space-2;
+  width: 100%;
+  background-color: $color-teal-blue;
+
+  a {
+    text-align: center;
+    text-decoration: none;
+    color: $color-white;
+    border: 1px solid $color-white;
+    padding: 0 $space-2;
+    border-radius: 7px;
+    min-height: $control-height;
+    line-height: $control-height;
+  }
+}

@@ -1,0 +1,44 @@
+@use '../variables' as *;
+
+/* Active Players panel */
+.players-panel {
+  margin-top: 1.5rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+}
+
+.players-header {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  h3 { margin: 0; font-size: 1.1rem; }
+}
+
+.players-list { display: flex; flex-direction: column; gap: 0; }
+
+.player-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr auto;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  &:last-child { border-bottom: 0; }
+}
+
+.player-row .identity { display: flex; align-items: center; gap: 0.5rem; }
+.username { font-weight: 600; }
+
+.badge {
+  display: inline-block; padding: 0.1rem 0.4rem; font-size: 0.75rem;
+  border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.badge-pending { background: rgba(255, 193, 7, 0.2); border-color: rgba(255, 193, 7, 0.6); }
+
+.player-row .stats { display: flex; gap: 0.8rem; justify-content: flex-start; }
+.player-row .actions { display: flex; justify-content: flex-end; }
+
+.btn-invite { background-color: $color-teal-blue; }
+.btn-decline { background-color: #9b1c31; }
+.btn-accept { background-color: #198754; }
+
+.empty { padding: 1rem; color: #ccc; font-style: italic; }

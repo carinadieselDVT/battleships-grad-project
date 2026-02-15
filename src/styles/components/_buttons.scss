@@ -1,0 +1,15 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+button {
+  @include button-base;
+  background-color: $color-teal-blue;
+  color: $color-white;
+
+  &:hover {
+    background-color: $color-rosewood-pink;
+  }
+}
+
+select,
+button { min-height: $control-height; }

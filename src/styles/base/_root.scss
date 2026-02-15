@@ -1,0 +1,43 @@
+@use '../variables' as *;
+
+/* Theme tokens and global base */
+:root { --bg: #160F29; --cell-size: clamp(22px, 7vw, 40px); }
+:root[data-theme='light'] { --bg: #a98cdd; }
+:root[data-theme='dark']  { --bg: #160F29; }
+
+:root {
+  font-family: $font-family;
+  line-height: 1.5;
+  font-weight: 400;
+  color: $color-text;
+  background-color: var(--bg);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: $space-3;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+h1 { font-size: clamp(1.5rem, 4.5vw, 3.2rem); line-height: 1.1; }
+
+a {
+  font-weight: 500;
+  color: $color-teal-blue;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-teal-blue;
+    background-color: $color-porcelain;
+  }
+}

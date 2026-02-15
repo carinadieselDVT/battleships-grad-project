@@ -133,3 +133,78 @@ Update your `package.json` with the following scripts:
 npm run lint
 npm run format
 ```
+
+---
+
+## Project structure and conventions
+
+Multipage app kept for now (index.html, lobby.html, history.html). Source code is organized by concern.
+
+````text
+.
+├── docs/
+│   └── server.md
+├── public/                  # static files copied as-is
+├── scripts/
+│   └── mockServer.js        # local mock WebSocket server
+├── src/
+│   ├── app/
+│   │   └── main.js          # game bootstrap and gameplay wiring
+│   ├── components/          # web components
+│   │   ├── active-players.js
+│   │   ├── login-screen.js
+│   │   └── ship-selector.js
+│   ├── game/                # domain logic
+│   │   ├── boardLogic.js
+│   │   └── shipLogic.js
+│   ├── network/             # networking
+│   │   ├── websocketClient.js
+│   │   └── wsSession.js
+│   ├── pages/               # page-specific logic
+│   │   └── lobby.js
+│   ├── assets/              # images/fonts imported from JS/CSS
+│   └── styles/              # SCSS entry + partials (see below)
+│       ├── style.scss       # entry that composes partials
+│       ├── _variables.scss
+│       ├── _mixins.scss
+│       ├── base/_root.scss
+│       ├── layout/_nav.scss
+│       ├── components/_buttons.scss
+│       ├── components/_board.scss
+│       ├── components/_login-overlay.scss
+│       ├── components/_players.scss
+│       └── pages/(_game.scss, _lobby.scss)
+├── index.html               # routes: #game, #lobby, #history
+├── lobby.html               # kept for now (alternative entry)
+├── history.html             # kept for now (alternative entry)
+└── dist/                    # build output (ignored)
+````
+
+### Styles (SCSS)
+- style.scss is the single entry and composes modules using Sass `@use`.
+- Partials live under src/styles; import tokens as needed:
+
+````scss
+/* Example usage inside a partial */
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.button { @include button-base; }
+````
+
+Add new partials under components/, layout/, pages/, etc., and reference them from style.scss with `@use './path/to/partial';`.
+
+### Mock server
+- Toggle mock mode with either `?mock=1` in the URL or `localStorage.setItem('mock','1')`.
+- When enabled, `src/network/wsSession.js` instantiates `scripts/mockServer.js` instead of a real WebSocket.
+
+### Theming
+- `data-theme` attribute is set on `<html>` and persisted to localStorage. The toggle button `#theme-toggle` flips between dark/light.
+- Theme token `--bg` is defined in base/_root.scss.
+
+### Assets
+- Put files you import from JS/CSS in `src/assets/` so Vite can fingerprint and bundle them.
+- Use `public/` for files that must keep their exact path/name and are not imported by code (e.g., favicon, robots.txt).
+
+### Next steps (optional)
+- If you want lobby.html and history.html emitted as separate HTML files in production, add a Vite multi-page input config. Otherwise, index.html with hash routes is sufficient.
